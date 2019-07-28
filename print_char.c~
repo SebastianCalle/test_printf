@@ -1,8 +1,0 @@
-/**
- * cx - Prints a char.
- * @arg: A list pointing to char to print.
- */
-void cx(va_list arg)
-{
-	printf("%c", (char) va_arg(arg, int));
-}
