@@ -5,35 +5,36 @@
  */
 void _printf(const char * const format, ...)
 {
-	va_list l;
+	va_list args;
 	char *separator = "";
 	int j, i = 0;
 	abc funcs[] = {
 		{"c", print_char},
-		{"i", print_int},
-		{"f", print_float},
 		{"s", print_str},
+		{"i", print_int},
+		{"d", print_int},
+		{"u", print_uint},
 		{"o", print_octal},
 		{"b", print_bin},
-		{"h", print_hex},
-		{"H", print_hexcaps},
+		{"x", print_hex},
+		{"X", print_hexM},
 	};
 
-	va_start(l, format);
+	va_start(args, format);
 	while (format && format[i])
 	{
 		j = 0;
 
-		while (j < 4 && format[i] != *(funcs[j].s))
+		while (j < 9 && format[i] != *(funcs[j].s))
 			j++;
-		if (j < 4)
+		if (j < 9)
 		{
 			printf("%s", separator);
-			funcs[j].pt(l);
+			funcs[j].pt(args);
 			separator = ", ";
 		}
 		i++;
 	}
 	printf("\n");
-	va_end(l);
+	va_end(args);
 }
