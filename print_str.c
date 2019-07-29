@@ -3,15 +3,19 @@
  * print_str - Prints a string.
  * @arg: A list pointing to string to print.
  */
-
-void *print_str(va_list l)
+void print_str(va_list arg)
 {
-	char *p = va_arg(l, char *);
+	int j, i;
+	char n[] = "(null)";
+	char *s = va_arg(arg, char *);
 
-	if (p == NULL)
+	j = 0;
+	if (s == NULL)
 	{
-		printf("(nil)");
+		for (i = 0; n[i] != '0'; i++)
+			_putchar(n[i]);
 		return;
 	}
-	printf("%s", p);
+	for (j = 0; s[j] != '\0'; j++)
+		_putchar(s[j]);
 }

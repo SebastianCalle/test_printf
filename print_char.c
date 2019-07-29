@@ -3,8 +3,10 @@
  * print_char - Prints a char.
  * @arg: A list pointing to char to print.
  */
-char print_char(va_list l)
+void print_char(va_list arg)
 {
-	       char c;
-	       _putchar(va_arg(l, int));
+	int c;
+
+	c = va_arg(arg, int);
+	_putchar(c);
 }
